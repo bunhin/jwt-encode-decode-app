@@ -8,12 +8,12 @@ by the JSON Web Token (JWT) draft. This app is modeled off of Google's OAuth 2.0
 
 Install and Run the App
 ------------------------------
-> git clone git://github.com/xtuple/jwt-encode-decode-app.git
-> cd jwt-encode-decode-app
-> node app.js
+    git clone git://github.com/xtuple/jwt-encode-decode-app.git
+    cd jwt-encode-decode-app
+    node app.js
 
 Open your browser and go to:
-> http://localhost:3000
+    http://localhost:3000
 
 ## Credits
 
