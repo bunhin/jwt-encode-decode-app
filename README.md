@@ -13,7 +13,7 @@ Install and Run the App
     node app.js
 
 Open your browser and go to:
-    http://localhost:3000
+> http://localhost:3000
 
 ## Credits
 
