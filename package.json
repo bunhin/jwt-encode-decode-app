@@ -1,0 +1,30 @@
+{
+  "name": "jwt-encode-decode-app",
+  "version": "0.1.0",
+  "description": "JSON Web Token (JWT) Bearer Token Encoding and Decoding App.",
+  "keywords": ["oauth", "oauth2", "jwt", "json", "token", "bearer"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xtuple/jwt-encode-decode-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xtuple/jwt-encode-decode-app/issues"
+  },
+  "author": {
+    "name": "bendiy",
+    "email": "ben@xtuple.com",
+    "url": "http://www.xtuple.com/"
+  },
+  "licenses": [ {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/MIT"
+  } ],
+  "main": "./app.js",
+  "dependencies": {
+    "pkginfo": "0.2.x",
+    "ejs": "0.8.x",
+    "express": "3.1.x",
+    "ursa": "0.8.0"
+  },
+  "engines": { "node": ">= 0.4.0" }
+}
