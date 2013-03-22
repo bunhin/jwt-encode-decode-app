@@ -171,7 +171,7 @@ app.post('/decode', function (req, res) {
       verifier.update(data);
       matches = verifier.verify(pubKey, signature, 'base64');
 
-      res.render('encode', { header: header, claimSet: claimSet, privKey: "Enter you Private Key Here to Encode Again.", matches: matches, example: false });
+      res.render('encode', { header: header, claimSet: claimSet, privKey: "Enter your Private Key Here to Encode Again.", matches: matches, example: false });
     } else {
       res.render('encode', { header: "invalid", claimSet: "invalid", privKey: "invalid", matches: matches, example: false });
     }
