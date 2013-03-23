@@ -111,8 +111,9 @@ app.post('/encode', function (req, res) {
 
   try {
     var privKey = req.body.privKey,
-        encodeHeader = base64urlEncode(JSON.stringify(req.body.header)),
-        encodeClaimSet = base64urlEncode(JSON.stringify(req.body.claimSet)),
+        // req.body.xxx comes in as a string, parse it to an object and then convert it into a clean string.
+        encodeHeader = base64urlEncode(JSON.stringify(JSON.parse(req.body.header))),
+        encodeClaimSet = base64urlEncode(JSON.stringify(JSON.parse(req.body.claimSet))),
         data = encodeHeader + "." + encodeClaimSet,
         signer = crypto.createSign("RSA-SHA256"),
         signature,
@@ -165,8 +166,9 @@ app.post('/decode', function (req, res) {
     data = contents[0] + "." + contents[1];
 
     if (header && claimSet && signature) {
-      header = JSON.parse(header);
-      claimSet = JSON.parse(claimSet);
+      // These come in as a strings, parse them to an object and then convert it into a clean string.
+      header = JSON.stringify(JSON.parse(header), null, 2);
+      claimSet = JSON.stringify(JSON.parse(claimSet), null, 2);
 
       verifier.update(data);
       matches = verifier.verify(pubKey, signature, 'base64');
