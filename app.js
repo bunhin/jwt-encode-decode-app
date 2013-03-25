@@ -78,8 +78,8 @@ app.get('/encode', function (req, res) {
   claimSet.iss = "your-client-identifer-here";
   claimSet.scope = "https://www.example.com/auth/some-scope";
   claimSet.aud = "https://www.example.com/oauth2/token";
-  claimSet.exp = expires.getTime();
-  claimSet.iat = today.getTime();
+  claimSet.exp = expires.getTime() / 1000;
+  claimSet.iat = today.getTime() / 1000;
 
   // This is a real key, but is now public and not secure. Example only.
   privKey = "-----BEGIN RSA PRIVATE KEY-----\nMIICWwIBAAKBgQCpM0Q1VNFIDAD9ad4FlfPK9Qnn54PUGZEim4jfGKawZ0pwgjkq\nTS4Qm2FwXcRs2dorTvtktOlJm7Gr+XVR7br+IqSJ3RMlUaa40iGgSGvilAB6tDSs\nEl/FUtPdMrMw59++BBXDKIyuuhVODHlezT/xY7+ma5eAoswXliTNO+7j4QIDAQAB\nAoGAN7t2RSbaBKRHkzFS+34IHpsWFzgQGUYOo1qd+/ZvuX1cbLDISaHAgaHct5l7\nQOuFTGyoq+RXT3KkVGRH+6OVyuTX0jFU5SYfBmodwzZr13dB2VA+YEiGYtsom86u\nUldCgRZVfbT5nyL8OgIsBgS879/HgJ4yf8X1LlZZqzG0YH0CQQDTnPoCABxScjDZ\nOONXaVnoPuo5OulHofsi+KpvVi9Cv9+zhsr0ToLJnruYQ/aKAwWa6fbt72T+n3+V\nEiQOXFXbAkEAzLDWM5OzEQPtOQE/JqXAH1SAmZ944ET0O4IUEZJiK5hsO64HGvSh\n+ftMR5Itii3ROUb1NqG9c6jcUUl6fyG/8wJAV+7WELi9DCF5XPp/tdYITzK9n7R0\nNZkAw6JzKDq2/tS+f1pWwbhSLrfwGjC7pNPmo13vhyXAYPIkUOyt4O3LmwJASL9g\noZwQvC9lFCl5REcMbRYfTnn6/9oB41RrxYL9GPlnHh7Pr6jaGHpTtewh+0YlYfHy\nHKSHLKALDWjL/HsGOQJADEwwqKz2fyvYlkGK0tnkdlCEjaZHaHGzTBhxSX36s2Yf\nJBAyd7+xD3R0HLV7L85D6oltUaUiCn4gXN1N+p30PA==\n-----END RSA PRIVATE KEY-----\n";
