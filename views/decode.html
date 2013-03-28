@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSON Web Token (JWT) Encode Decode App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  </head>
+  <body>
+
+  <style type="text/css" media="all">
+  <% include stylesheets/style.css %>
+  </style>
+
+  <section id="body" class="enyo-fit enyo-clip">
+    <h1><a href="/">JSON Web Token (JWT)</a><br />Decode a JWT</h1>
+    <section class="enyo-panels enyo-arranger enyo-arranger-fit enyo-panels-fit-narrow" id="main">
+      <div style="transform: translateZ(0px); opacity: 1;" id="form-fields">
+        <form action="/decode" method="post">
+          <div class="label" id="form-fields_jwtLabel">JWT <% if (example) { %>- <span id="warn">Replace example with your JWT</span><% } %></div>
+          <textarea class="enyo-input input" id="form-fields_jwt" name="jwt" placeholder="JWT" rows="10" cols="30"><%= jwt %></textarea>
+          <div class="label" id="form-fields_public_keyLabel">Public Key
+            <% if (example) { %>- <span id="warn">Replace example with your Public Key</span><% } %>
+            <% if (extracted) { %>- <span id="valid">Extracted from the Private Key entered</span><% } %>
+          </div>
+          <textarea class="enyo-input input" id="form-fields_public_key" name="pubKey" placeholder="Public Key" rows="7" cols="65"><%= pubKey %></textarea>
+          <input class="enyo-tool-decorator onyx-button enyo-unselectable button" name="submit" id="form-fields_loginButton" type="submit" value="Decode JWT"/>
+        </form>
+      </div>
+    </section>
+  </section>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSON Web Token (JWT) Encode Decode App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  </head>
+  <body>
+
+  <style type="text/css" media="all">
+  <% include stylesheets/style.css %>
+  </style>
+
+  <section id="body" class="enyo-fit enyo-clip">
+    <h1><a href="/">JSON Web Token (JWT)</a><br />Encode a JWT</h1>
+    <section class="enyo-panels enyo-arranger enyo-arranger-fit enyo-panels-fit-narrow" id="main">
+      <div style="transform: translateZ(0px); opacity: 1;" id="form-fields">
+        <% if (matches) { %>
+          <h1 id="valid">SUCCESS: Decoded JWT is valid and matches it's signature.</h1>
+        <% } %>
+        <% if (!matches && !example) { %>
+          <h1 id="error">ERROR: Decoded JWT does NOT match it's signature!</h1>
+        <% } %>
+        <form action="/encode" method="post">
+          <div class="label" id="form-fields_headerLabel">JWT Header <% if (example) { %>- <span id="warn">Replace example with your header</span><% } %></div>
+          <textarea class="enyo-input input" id="form-fields_header" name="header" placeholder="JWT Header" rows="4" cols="30"><%= header %></textarea>
+          <div class="label" id="form-fields_claim_setLabel">JWT Claimset <% if (example) { %>- <span id="warn">Replace example with your claim set</span><% } %></div>
+          <textarea class="enyo-input input" id="form-fields_claim_set" name="claimSet" placeholder="JWT Claim Set" rows="8" cols="65"><%= claimSet %></textarea>
+          <div class="label" id="form-fields_private_keyLabel">Private Key <% if (example) { %>- <span id="warn">Replace example with your Private Key</span><% } %></div>
+          <textarea class="enyo-input input" id="form-fields_private_key" name="privKey" placeholder="Private Key" rows="16" cols="65"><%= privKey %></textarea>
+          <input class="enyo-tool-decorator onyx-button enyo-unselectable button" name="submit" id="form-fields_loginButton" type="submit" value="Encode JWT"/>
+        </form>
+      </div>
+    </section>
+  </section>
+  </body>
+</html>

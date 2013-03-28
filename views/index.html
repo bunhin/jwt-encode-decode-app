@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSON Web Token (JWT) Encode / Decode App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  </head>
+  <body>
+
+  <style type="text/css" media="all">
+  <% include stylesheets/style.css %>
+  </style>
+
+  <section id="body" class="enyo-fit enyo-clip">
+    <h1>JSON Web Token (JWT) Encode / Decode App</h1>
+    <section class="enyo-panels enyo-arranger enyo-arranger-fit enyo-panels-fit-narrow" id="main">
+      <p>
+        This is a simple app that allows you to encode and decode JWTs and see the results.
+        <ul>
+          <li><a href="/encode">Encode a JWT</a></li>
+          <li><a href="/decode">Decode a JWT</a></li>
+        </ul>
+      </p>
+      <p>
+        To create your private and public keys, run these openssl commands:
+        <ul>
+          <li>openssl genrsa -out private.pem 1024</li>
+          <li>openssl rsa -in private.pem -pubout > public.pem</li>
+        </ul>
+      </p>
+    </section>
+  </section>
+  </body>
+</html>
