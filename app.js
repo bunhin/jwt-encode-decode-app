@@ -120,7 +120,9 @@ app.post('/encode', function (req, res) {
         extracted = false;
 
     signer.update(data);
-    signature = base64urlEncode(signer.sign(privKey, 'base64'));
+    signature = base64urlEscape(signer.sign(privKey, 'base64'));
+    // For HMAC, use this instead of the above two lines:
+    //signature = base64urlEscape(crypto.createHmac('sha256', privKey).update(data).digest('base64'));
 
     // Extract the public key from the privte one.
     var pubKey = ursa.coerceKey(privKey).toPublicPem();
@@ -162,7 +164,7 @@ app.post('/decode', function (req, res) {
 
     header = base64urlDecode(contents[0]);
     claimSet = base64urlDecode(contents[1]);
-    signature = base64urlDecode(contents[2]);
+    signature = base64urlUnescape(contents[2]);
     data = contents[0] + "." + contents[1];
 
     if (header && claimSet && signature) {
@@ -170,6 +172,11 @@ app.post('/decode', function (req, res) {
       header = JSON.stringify(JSON.parse(header), null, 2);
       claimSet = JSON.stringify(JSON.parse(claimSet), null, 2);
 
+      // HMAC cannot be verified witout the private key used to recompute the signature. I consider
+      // this less secure for a client/server setup where the server only needs to stores a public key.
+      // To use HMAC, the next two lines would need to be changed to use the private key to
+      // recompute the signature and check it against the JWT's signature.
+      // e.g. signature = base64urlEscape(crypto.createHmac('sha256', privKey).update(data).digest('base64'));
       verifier.update(data);
       matches = verifier.verify(pubKey, signature, 'base64');
 
