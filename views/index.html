@@ -29,6 +29,13 @@
           <li>openssl rsa -in private.pem -pubout > public.pem</li>
         </ul>
       </p>
+      <p>
+        To extract your private and public keys from a privatekey.p12 keystore file like Google's <a href="https://code.google.com/apis/console#access">APIs Console</a> supplies, run these openssl commands:
+        <ul>
+          <li>openssl pkcs12 -in your-keystore-file-here.p12 -nocerts -nodes | openssl rsa > private.pem</li>
+          <li>openssl rsa -in private.pem -pubout > public.pem</li>
+        </ul>
+      </p>
     </section>
   </section>
   </body>
