@@ -29,6 +29,8 @@
           <textarea class="enyo-input input" id="form-fields_claim_set" name="claimSet" placeholder="JWT Claim Set" rows="8" cols="65"><%= claimSet %></textarea>
           <div class="label" id="form-fields_private_keyLabel">Private Key <% if (example) { %>- <span id="warn">Replace example with your Private Key</span><% } %></div>
           <textarea class="enyo-input input" id="form-fields_private_key" name="privKey" placeholder="Private Key" rows="16" cols="65"><%= privKey %></textarea>
+          <br />
+          <span>Note: When pasting SSL keys in here, be sure to include a blank new line after then end of the key.</span>
           <input class="enyo-tool-decorator onyx-button enyo-unselectable button" name="submit" id="form-fields_loginButton" type="submit" value="Encode JWT"/>
         </form>
       </div>

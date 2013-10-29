@@ -24,6 +24,8 @@
             <% if (extracted) { %>- <span id="valid">Extracted from the Private Key entered</span><% } %>
           </div>
           <textarea class="enyo-input input" id="form-fields_public_key" name="pubKey" placeholder="Public Key" rows="7" cols="65"><%= pubKey %></textarea>
+          <br />
+          <span>Note: When pasting SSL keys in here, be sure to include a blank new line after then end of the key.</span>
           <input class="enyo-tool-decorator onyx-button enyo-unselectable button" name="submit" id="form-fields_loginButton" type="submit" value="Decode JWT"/>
         </form>
       </div>
